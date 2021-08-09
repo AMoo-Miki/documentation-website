@@ -133,15 +133,15 @@ If you're making major changes to the documentation and need to see the rendered
    sh build.sh
    ```
 
-1. If the build script doesn't automatically open your web browser (it should), open [http://localhost:4000/](http://localhost:4000/).
+1. If the build script doesn't automatically open your web browser (it should), open [http://localhost:4000/docs/](http://localhost:4000/docs/).
 
 1. Create a new branch.
 
-1. Edit the Markdown files in `/docs`.
+1. Edit the Markdown files in each collection (e.g. `_security-plugin/`).
 
    If you're a web developer, you can customize `_layouts/default.html` and `_sass/custom/custom.scss`.
 
-1. When you save a file, marvel as Jekyll automatically rebuilds the site and refreshes your web browser. This process takes roughly 30 seconds.
+1. When you save a file, marvel as Jekyll automatically rebuilds the site and refreshes your web browser. This process can take anywhere from 10-30 seconds.
 
 1. When you're happy with how everything looks, commit, push your changes to your fork, and submit a pull request.
 
@@ -225,7 +225,7 @@ This documentation uses a modified version of the [just-the-docs](https://github
 
 ## Get started
 New
-{: .label .label-green :}
+{: .label .label-green }
 ```
 
 * Labels come in default (blue), green, purple, yellow, and red.
@@ -236,6 +236,27 @@ New
 These classes can help with readability, but should be used *sparingly*. Each addition of a class damages the portability of the Markdown files and makes moving to a different Jekyll theme (or a different static site generator) more difficult.
 
 Besides, standard Markdown elements suffice for most documentation.
+
+
+## Labels for APIs
+
+Each API operation has a label indicating when it was introduced. For most operations, this label is 1.0:
+
+```
+## Get roles
+Introduced 1.0
+{: .label .label-purple }
+```
+
+If we introduce a breaking change to an operation, add an additional label with a link to the release note for that breaking change:
+
+```
+## Get roles
+Introduced 1.0
+{: .label .label-purple }
+[Last breaking change 2.0](https://example.com)
+{: .label .label-red }
+```
 
 
 ## Math

@@ -2,10 +2,13 @@
 layout: default
 title: Get document
 parent: Document APIs
+grand_parent: REST API reference
 nav_order: 5
 ---
 
 # Get document
+Introduced 1.0
+{: .label .label-purple }
 
 After adding a JSON document to your index, you can use the get document API operation to retrieve the document's information and data.
 

@@ -3,10 +3,12 @@ layout: default
 title: Bulk
 parent: Document APIs
 grand_parent: REST API reference
-nav_order: 20
+nav_order: 25
 ---
 
 # Bulk
+Introduced 1.0
+{: .label .label-purple }
 
 The bulk operation lets you add, update, or delete many documents in a single request. Compared to individual OpenSearch indexing requests, the bulk operation has significant performance benefits. Whenever practical, we recommend batching indexing operations into bulk requests.
 
