@@ -133,7 +133,7 @@
 
             frag.querySelector('#selected').textContent = `${PREFIX}${this.getAttribute('selected')}`;
 
-            const pathName = location.pathname.replace(/\/docs(\/((latest|\d+\.\d+)\/)?)?/, '');
+            const pathName = location.pathname.replace(/\/docs(\/((latest|\d+\.\d+)\/?)?)?/, '');
             const versionsDOMText = DOC_VERSIONS.map(v => `<a href="/docs/${v}/${pathName}">${PREFIX}${v}</a>`)
                 .join('');
 
