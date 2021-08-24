@@ -9,6 +9,7 @@
             font-size: 1em;
             user-select: none;
             margin: 3px;
+            text-align: left;
         }
         
         * {
@@ -95,6 +96,7 @@
             border-bottom: 1px solid #eee;
             text-decoration: none;
             color: var(--link-color);
+            position: relative;
         }
         
         #dropdown > a:last-child {
@@ -103,6 +105,17 @@
         
         #dropdown > a:hover {
             background: #efefef;
+        }
+        
+        a.latest:after {
+            content: "LATEST";
+            position: absolute;
+            right: .4rem;
+            font-size: 0.6em;
+            font-weight: 700;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
         }
         </style>
         <a id="root" role="button" aria-labelledby="selected" aria-controls="dropdown" tabindex="0">
@@ -134,7 +147,7 @@
             frag.querySelector('#selected').textContent = `${PREFIX}${this.getAttribute('selected')}`;
 
             const pathName = location.pathname.replace(/\/docs(\/((latest|\d+\.\d+)\/?)?)?/, '');
-            const versionsDOMText = DOC_VERSIONS.map(v => `<a href="/docs/${v}/${pathName}">${PREFIX}${v}</a>`)
+            const versionsDOMText = DOC_VERSIONS.map((v, idx) => `<a href="/docs/${v}/${pathName}"${idx === 0 ? ' class="latest"' : ''}>${PREFIX}${v}</a>`)
                 .join('');
 
             frag.querySelector('#dropdown').appendChild(this._makeFragment(versionsDOMText));
