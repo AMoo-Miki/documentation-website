@@ -1,5 +1,5 @@
 (async () => {
-    const PREFIX = "OpenSearch v";
+    const PREFIX = "OpenSearch ";
     const tpl = `
         <style>
         :host {
