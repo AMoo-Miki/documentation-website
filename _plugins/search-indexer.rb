@@ -62,7 +62,7 @@ module Jekyll::ContentIndexer
       title: page.data["title"],
       content: content,
       collection: collection,
-      type: "Documentation"
+      type: "DOCS"
     }
 
     @data.push(data)
