@@ -55,13 +55,28 @@ module Jekyll::ContentIndexer
     return if content.empty?
 
     url = @site.config["baseurl"] + page.url
-    collection = @site.config["just_the_docs"]["collections"][page.collection&.label]["name"] if page.instance_of?(Jekyll::Document)
+
+    # Produce a breadcrumb
+    ancestors = []
+    if page.instance_of?(Jekyll::Document)
+      ancestors.push(@site.config.dig("just_the_docs", "collections", page.collection&.label, "name"))
+    end
+
+    ancestors.push(page.data["grand_parent"]) unless
+      page.data["grand_parent"].nil? ||
+      page.data["grand_parent"]&.empty? ||
+      ancestors.include?(page.data["grand_parent"])     # Make sure collection name is not added
+
+    ancestors.push(page.data["parent"]) unless
+      page.data["parent"].nil? ||
+        page.data["parent"]&.empty? ||
+        ancestors.include?(page.data["parent"])         # Make sure collection name is not added
 
     data = {
       url: url,
       title: page.data["title"],
       content: content,
-      collection: collection,
+      ancestors: ancestors,
       type: "DOCS"
     }
 
