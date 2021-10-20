@@ -1130,3 +1130,35 @@ version-selector {
   --hover-bg: linear-gradient(#{lighten($blue-300, 2%)}, #{darken($blue-300, 4%)});
   --link-color: #{$blue-300};
 }
+
+.custom-search-results {
+  padding: 1rem;
+
+  & > div:not(:first-child) {
+    margin-top: 2rem;
+  }
+  cite {
+    @include font-size(12);
+    @include sans-serif;
+    color: $grey-dk-300;
+    text-decoration: none;
+    font-style: normal;
+    display: block;
+    line-height: 1;
+    font-weight: normal;
+  }
+
+  a {
+    @include font-size(20);
+    @include heading-sans-serif;
+    line-height: 1.6;
+    font-weight: bold;
+  }
+
+  span {
+    @include font-size(14);
+    color: $grey-dk-200;
+    line-height: 1.4;
+    display: block;
+  }
+}
